@@ -16,6 +16,9 @@
 		EF79F64525F5494C002CCCE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF79F64325F5494C002CCCE2 /* LaunchScreen.storyboard */; };
 		EF7D6FB525F66438005628B5 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D6FB425F66438005628B5 /* SearchResponse.swift */; };
 		EF7D6FB825F66A81005628B5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D6FB725F66A81005628B5 /* Network.swift */; };
+		EF7D6FBB25F67498005628B5 /* secondControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D6FBA25F67498005628B5 /* secondControllerViewController.swift */; };
+		EF7D6FBF25F675D7005628B5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D6FBD25F675D7005628B5 /* CollectionViewCell.swift */; };
+		EF7D6FC025F675D7005628B5 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF7D6FBE25F675D7005628B5 /* CollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		EF79F64625F5494C002CCCE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF7D6FB425F66438005628B5 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		EF7D6FB725F66A81005628B5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		EF7D6FBA25F67498005628B5 /* secondControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondControllerViewController.swift; sourceTree = "<group>"; };
+		EF7D6FBD25F675D7005628B5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		EF7D6FBE25F675D7005628B5 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 				EF79F63E25F54949002CCCE2 /* ProjectIOS.xcdatamodeld */,
 				EF7D6FB425F66438005628B5 /* SearchResponse.swift */,
 				EF7D6FB725F66A81005628B5 /* Network.swift */,
+				EF7D6FBA25F67498005628B5 /* secondControllerViewController.swift */,
+				EF7D6FBD25F675D7005628B5 /* CollectionViewCell.swift */,
+				EF7D6FBE25F675D7005628B5 /* CollectionViewCell.xib */,
 			);
 			path = ProjectIOS;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 			files = (
 				EF79F64525F5494C002CCCE2 /* LaunchScreen.storyboard in Resources */,
 				EF79F64225F5494C002CCCE2 /* Assets.xcassets in Resources */,
+				EF7D6FC025F675D7005628B5 /* CollectionViewCell.xib in Resources */,
 				EF79F63D25F54949002CCCE2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,7 +156,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7D6FBB25F67498005628B5 /* secondControllerViewController.swift in Sources */,
 				EF79F63A25F54949002CCCE2 /* ViewController.swift in Sources */,
+				EF7D6FBF25F675D7005628B5 /* CollectionViewCell.swift in Sources */,
 				EF7D6FB525F66438005628B5 /* SearchResponse.swift in Sources */,
 				EF7D6FB825F66A81005628B5 /* Network.swift in Sources */,
 				EF79F64025F54949002CCCE2 /* ProjectIOS.xcdatamodeld in Sources */,

@@ -7,16 +7,12 @@
 
 import UIKit
 
-struct giveAlbum: Decodable {
-    var collectionName: String
-}
+
 
 
 class ViewController: UIViewController {
     
-    let network = Network()
     
-    var searchResponse: SearchResponse? = nil
     
     @IBOutlet weak var searchAlbum: UITextField!
     
@@ -25,18 +21,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlString = "https://itunes.apple.com/search?term=jack+johnson&entity=album&limit=3"
-        network.request(urlString: urlString) { (result) in
-            switch result {
-            
-            case .success(let searchResponse):
-                searchResponse.results.map { (album) in
-                    self.searchResponse = searchResponse
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let text = searchAlbum.text
+        
+        guard segue.identifier == "goToAlbums" else { return }
+        guard let newVC = segue.destination as? secondControllerViewController else { return }
+        newVC.textFromVC = text!
     }
     
     
