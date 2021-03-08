@@ -14,6 +14,8 @@
 		EF79F64025F54949002CCCE2 /* ProjectIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF79F63E25F54949002CCCE2 /* ProjectIOS.xcdatamodeld */; };
 		EF79F64225F5494C002CCCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF79F64125F5494C002CCCE2 /* Assets.xcassets */; };
 		EF79F64525F5494C002CCCE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF79F64325F5494C002CCCE2 /* LaunchScreen.storyboard */; };
+		EF7D6FB525F66438005628B5 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D6FB425F66438005628B5 /* SearchResponse.swift */; };
+		EF7D6FB825F66A81005628B5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D6FB725F66A81005628B5 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		EF79F64125F5494C002CCCE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF79F64425F5494C002CCCE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF79F64625F5494C002CCCE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF7D6FB425F66438005628B5 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		EF7D6FB725F66A81005628B5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				EF79F64325F5494C002CCCE2 /* LaunchScreen.storyboard */,
 				EF79F64625F5494C002CCCE2 /* Info.plist */,
 				EF79F63E25F54949002CCCE2 /* ProjectIOS.xcdatamodeld */,
+				EF7D6FB425F66438005628B5 /* SearchResponse.swift */,
+				EF7D6FB725F66A81005628B5 /* Network.swift */,
 			);
 			path = ProjectIOS;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF79F63A25F54949002CCCE2 /* ViewController.swift in Sources */,
+				EF7D6FB525F66438005628B5 /* SearchResponse.swift in Sources */,
+				EF7D6FB825F66A81005628B5 /* Network.swift in Sources */,
 				EF79F64025F54949002CCCE2 /* ProjectIOS.xcdatamodeld in Sources */,
 				EF79F63625F54949002CCCE2 /* AppDelegate.swift in Sources */,
 				EF79F63825F54949002CCCE2 /* SceneDelegate.swift in Sources */,
@@ -292,6 +300,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ProjectIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,7 +308,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.test.ProjectIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,6 +319,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ProjectIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,7 +327,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.test.ProjectIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
