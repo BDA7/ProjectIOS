@@ -2,10 +2,11 @@
 //  Network.swift
 //  ProjectIOS
 //
-//  Created by Александр Хижко on 08.03.2021.
+//  Created by Александр Хижко on 15.03.2021.
 //
 
 import Foundation
+import UIKit
 
 class Network {
     func request(urlString: String, completion: @escaping (Result<SearchResponse, Error>) -> Void) {
@@ -18,16 +19,16 @@ class Network {
                     return
                 }
                 guard let data = data else { return }
-                let someString = String(data: data, encoding: .utf8)
-                print(someString ?? "no data")
-                do{
+                do {
                     let albums = try JSONDecoder().decode(SearchResponse.self, from: data)
                     completion(.success(albums))
-                } catch let jsonError {
-                    print("Error: ", jsonError)
+                } catch  let jsonError {
+                    print("Faled Decode \(jsonError)")
                     completion(.failure(jsonError))
                 }
+                
             }
         }.resume()
     }
 }
+
