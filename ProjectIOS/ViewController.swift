@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResponse?.results.count ?? 0
@@ -18,7 +18,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! albumViewCell
         let album = searchResponse?.results[indexPath.row]
-        let url = URL(string: (album!.artworkUrl60))
+        let url = URL(string: (album!.artworkUrl100))
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard let data = data, error == nil else { return }
 
@@ -31,6 +31,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.labelView?.text = album?.collectionName
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/2)
+    }
+    
     
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -63,13 +68,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         searchController.searchBar.delegate = self
         navigationController?.navigationBar.prefersLargeTitles = true
         searchController.obscuresBackgroundDuringPresentation = false
+        
     }
 }
 
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let urlString = "https://itunes.apple.com/search?term=\(searchText)&entity=album&limit=10"
+        searchBar.searchTextField.textColor = .white
+        let urlString = "https://itunes.apple.com/search?term=\(searchText)&entity=album"
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (_) in
             self.network.request(urlString: urlString) { [weak self] (result) in
@@ -89,23 +96,3 @@ extension ViewController: UISearchBarDelegate {
 }
 
 
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
-            }
-        }.resume()
-    }
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
-}
