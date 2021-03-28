@@ -12,7 +12,7 @@ class Network {
     func request(urlString: String, completion: @escaping (Result<SearchResponse, Error>) -> Void) {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async()  {
                 if let error = error {
                     print("Error")
                     completion(.failure(error))
@@ -27,6 +27,16 @@ class Network {
                     completion(.failure(jsonError))
                 }
                 
+            }
+        }.resume()
+    }
+    func getImage(album:Album, imagine: @escaping (Result<UIImage, Error>) -> Void) {
+        let url = URL(string: (album.artworkUrl100))
+        URLSession.shared.dataTask(with: url!) { data, response, error in
+            DispatchQueue.main.async() {
+                guard let data = data, error == nil else { return }
+                guard let image = UIImage(data: data) else { return }
+                imagine(.success(image))
             }
         }.resume()
     }
