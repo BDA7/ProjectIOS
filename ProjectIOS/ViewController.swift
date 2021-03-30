@@ -19,7 +19,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! albumViewCell
         let album = searchResponse?.results[indexPath.row]
 
-        network.getImage(album: album!) { [weak self] (result) in
+        network.getImage(album: album!) { (result) in
             switch result {
             
             case .success(let imagine):
