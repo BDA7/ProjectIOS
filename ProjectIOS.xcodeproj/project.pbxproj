@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF16B64E25FFB90000F33385 /* albumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16B64C25FFB90000F33385 /* albumViewCell.swift */; };
-		EF16B64F25FFB90000F33385 /* albumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF16B64D25FFB90000F33385 /* albumViewCell.xib */; };
+		EF16B64E25FFB90000F33385 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16B64C25FFB90000F33385 /* AlbumViewCell.swift */; };
+		EF16B64F25FFB90000F33385 /* AlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF16B64D25FFB90000F33385 /* AlbumViewCell.xib */; };
 		EF79F63625F54949002CCCE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF79F63525F54949002CCCE2 /* AppDelegate.swift */; };
 		EF79F63825F54949002CCCE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF79F63725F54949002CCCE2 /* SceneDelegate.swift */; };
 		EF79F63A25F54949002CCCE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF79F63925F54949002CCCE2 /* ViewController.swift */; };
@@ -21,8 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EF16B64C25FFB90000F33385 /* albumViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = albumViewCell.swift; sourceTree = "<group>"; };
-		EF16B64D25FFB90000F33385 /* albumViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = albumViewCell.xib; sourceTree = "<group>"; };
+		EF16B64C25FFB90000F33385 /* AlbumViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewCell.swift; sourceTree = "<group>"; };
+		EF16B64D25FFB90000F33385 /* AlbumViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewCell.xib; sourceTree = "<group>"; };
 		EF79F63225F54949002CCCE2 /* ProjectIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF79F63525F54949002CCCE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF79F63725F54949002CCCE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +34,7 @@
 		EF79F64625F5494C002CCCE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFD3B38B25FEA380003D8520 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		EFD3B38E25FEB4BB003D8520 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		EFD3C1892613AA980096A360 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +77,9 @@
 				EF79F63E25F54949002CCCE2 /* ProjectIOS.xcdatamodeld */,
 				EFD3B38B25FEA380003D8520 /* SearchResponse.swift */,
 				EFD3B38E25FEB4BB003D8520 /* Network.swift */,
-				EF16B64C25FFB90000F33385 /* albumViewCell.swift */,
-				EF16B64D25FFB90000F33385 /* albumViewCell.xib */,
+				EF16B64C25FFB90000F33385 /* AlbumViewCell.swift */,
+				EF16B64D25FFB90000F33385 /* AlbumViewCell.xib */,
+				EFD3C1892613AA980096A360 /* .swiftlint.yml */,
 			);
 			path = ProjectIOS;
 			sourceTree = "<group>";
@@ -92,6 +94,7 @@
 				EF79F62E25F54949002CCCE2 /* Sources */,
 				EF79F62F25F54949002CCCE2 /* Frameworks */,
 				EF79F63025F54949002CCCE2 /* Resources */,
+				EFD3C1862613A8510096A360 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -141,12 +144,33 @@
 			files = (
 				EF79F64525F5494C002CCCE2 /* LaunchScreen.storyboard in Resources */,
 				EF79F64225F5494C002CCCE2 /* Assets.xcassets in Resources */,
-				EF16B64F25FFB90000F33385 /* albumViewCell.xib in Resources */,
+				EF16B64F25FFB90000F33385 /* AlbumViewCell.xib in Resources */,
 				EF79F63D25F54949002CCCE2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EFD3C1862613A8510096A360 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EF79F62E25F54949002CCCE2 /* Sources */ = {
@@ -157,7 +181,7 @@
 				EFD3B38C25FEA380003D8520 /* SearchResponse.swift in Sources */,
 				EFD3B38F25FEB4BB003D8520 /* Network.swift in Sources */,
 				EF79F64025F54949002CCCE2 /* ProjectIOS.xcdatamodeld in Sources */,
-				EF16B64E25FFB90000F33385 /* albumViewCell.swift in Sources */,
+				EF16B64E25FFB90000F33385 /* AlbumViewCell.swift in Sources */,
 				EF79F63625F54949002CCCE2 /* AppDelegate.swift in Sources */,
 				EF79F63825F54949002CCCE2 /* SceneDelegate.swift in Sources */,
 			);
