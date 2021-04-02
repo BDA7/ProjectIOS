@@ -30,6 +30,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "firstSegue", sender: collectionView.cellForItem(at: indexPath))
+            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "firstSegue" else { return }
+        guard let destination = segue.destination as? TracksViewController else { return }
+        destination.name = "1234"
+        
+    }
+    
     let searchController = UISearchController(searchResultsController: nil)
     let network = Network()
     var searchResponse: SearchResponse?

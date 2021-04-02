@@ -16,6 +16,7 @@
 		EF79F64025F54949002CCCE2 /* ProjectIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF79F63E25F54949002CCCE2 /* ProjectIOS.xcdatamodeld */; };
 		EF79F64225F5494C002CCCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF79F64125F5494C002CCCE2 /* Assets.xcassets */; };
 		EF79F64525F5494C002CCCE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF79F64325F5494C002CCCE2 /* LaunchScreen.storyboard */; };
+		EFC5AA44261503C600381ABD /* TracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5AA43261503C600381ABD /* TracksViewController.swift */; };
 		EFD3B38C25FEA380003D8520 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD3B38B25FEA380003D8520 /* SearchResponse.swift */; };
 		EFD3B38F25FEB4BB003D8520 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD3B38E25FEB4BB003D8520 /* Network.swift */; };
 /* End PBXBuildFile section */
@@ -32,9 +33,10 @@
 		EF79F64125F5494C002CCCE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF79F64425F5494C002CCCE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF79F64625F5494C002CCCE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFC5AA43261503C600381ABD /* TracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksViewController.swift; sourceTree = "<group>"; };
 		EFD3B38B25FEA380003D8520 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		EFD3B38E25FEB4BB003D8520 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		EFD3C1892613AA980096A360 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		EFD3C1892613AA980096A360 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = ProjectIOS/.swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		EF79F62925F54949002CCCE2 = {
 			isa = PBXGroup;
 			children = (
+				EFD3C1892613AA980096A360 /* .swiftlint.yml */,
 				EF79F63425F54949002CCCE2 /* ProjectIOS */,
 				EF79F63325F54949002CCCE2 /* Products */,
 			);
@@ -79,7 +82,7 @@
 				EFD3B38E25FEB4BB003D8520 /* Network.swift */,
 				EF16B64C25FFB90000F33385 /* AlbumViewCell.swift */,
 				EF16B64D25FFB90000F33385 /* AlbumViewCell.xib */,
-				EFD3C1892613AA980096A360 /* .swiftlint.yml */,
+				EFC5AA43261503C600381ABD /* TracksViewController.swift */,
 			);
 			path = ProjectIOS;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				EFD3B38C25FEA380003D8520 /* SearchResponse.swift in Sources */,
 				EFD3B38F25FEB4BB003D8520 /* Network.swift in Sources */,
 				EF79F64025F54949002CCCE2 /* ProjectIOS.xcdatamodeld in Sources */,
+				EFC5AA44261503C600381ABD /* TracksViewController.swift in Sources */,
 				EF16B64E25FFB90000F33385 /* AlbumViewCell.swift in Sources */,
 				EF79F63625F54949002CCCE2 /* AppDelegate.swift in Sources */,
 				EF79F63825F54949002CCCE2 /* SceneDelegate.swift in Sources */,
