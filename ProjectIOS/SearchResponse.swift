@@ -16,4 +16,5 @@ struct SearchResponse: Decodable {
 struct Album: Decodable {
     var collectionName: String
     var artworkUrl100: String
+    var collectionId: Int
 }

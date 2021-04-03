@@ -32,18 +32,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "firstSegue", sender: collectionView.cellForItem(at: indexPath))
-            }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "firstSegue" else { return }
-        guard let destination = segue.destination as? TracksViewController else { return }
-        destination.name = "1234"
-        
+        rowselected = indexPath.row
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "firstSegue" {
+            guard let destination1 = segue.destination as? TracksViewController else { return }
+            destination1.name = (searchResponse?.results[rowselected].collectionId)!
+        }
+    }
     let searchController = UISearchController(searchResultsController: nil)
     let network = Network()
     var searchResponse: SearchResponse?
     var urlString = ""
+    var rowselected = 0
 
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
