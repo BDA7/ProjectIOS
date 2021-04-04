@@ -22,6 +22,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
             case .success(let imagine):
                 cell.imageView.image = imagine
+                self.img = imagine
             case .failure(let error):
                 print(error)
             }
@@ -38,6 +39,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if segue.identifier == "firstSegue" {
             guard let destination1 = segue.destination as? TracksViewController else { return }
             destination1.name = (searchResponse?.results[rowselected].collectionId)!
+            destination1.img = img!
+            
         }
     }
     let searchController = UISearchController(searchResultsController: nil)
@@ -45,6 +48,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var searchResponse: SearchResponse?
     var urlString = ""
     var rowselected = 0
+    var img: UIImage?
 
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {

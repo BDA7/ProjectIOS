@@ -9,19 +9,23 @@ import UIKit
 
 class TracksViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var imageAlbum: UIImageView!
     var name = 1
     var urlString = ""
     var trackResponse: TrackResponse?
     let network = Network()
+    var img: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
         netTrack()
         setupTable()
+        imageAlbum.image = img!
     }
     func setupTable() {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "celltable")
         table.delegate = self
         table.dataSource = self
+        table.backgroundColor = UIColor.black
     }
 
 }
@@ -34,10 +38,13 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celltable", for: indexPath)
         let track = trackResponse?.results[indexPath.row]
         cell.textLabel?.text = track?.trackName
+        cell.imageView?.image = img!
+        cell.backgroundColor = UIColor.black
+        cell.textLabel?.textColor = .white
         return cell
     }
     func netTrack() {
-        urlString = "https://itunes.apple.com/search?term=\(name)&entity=album"
+        urlString = "https://itunes.apple.com/lookup?id=\(name)&entity=song"
         network.requestTracks(urlString: urlString) { [weak self] (result) in
             switch result {
             case .success(let trackResponse):

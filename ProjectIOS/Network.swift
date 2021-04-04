@@ -52,9 +52,9 @@ class Network {
                 do {
                     let tracks = try JSONDecoder().decode(TrackResponse.self, from: data)
                     completion(.success(tracks))
+                    print(tracks)
                 } catch  let jsonError {
                     print("Faled Decode \(jsonError)")
-                    completion(.failure(jsonError))
                 }
             }
         }.resume()
