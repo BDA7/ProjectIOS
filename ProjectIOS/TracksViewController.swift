@@ -25,7 +25,6 @@ class TracksViewController: UIViewController {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "celltable")
         table.delegate = self
         table.dataSource = self
-        table.backgroundColor = UIColor.black
     }
 
 }
