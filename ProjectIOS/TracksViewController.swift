@@ -14,12 +14,21 @@ class TracksViewController: UIViewController {
     var urlString = ""
     var trackResponse: TrackResponse?
     let network = Network()
+    var imgname = ""
     var img: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
         netTrack()
         setupTable()
-        imageAlbum.image = img!
+        network.getImage(urlstr: imgname) { (result) in
+            switch result {
+            case .success(let img):
+                self.img = img
+                self.imageAlbum.image = img
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     func setupTable() {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "celltable")

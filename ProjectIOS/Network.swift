@@ -29,8 +29,8 @@ class Network {
             }
         }.resume()
     }
-    func getImage(album:Album, imagine: @escaping (Result<UIImage, Error>) -> Void) {
-        let url = URL(string: (album.artworkUrl100))
+    func getImage(urlstr: String, imagine: @escaping (Result<UIImage, Error>) -> Void) {
+        let url = URL(string: urlstr)
         URLSession.shared.dataTask(with: url!) { data, _, error in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else { return }
@@ -50,9 +50,9 @@ class Network {
                 }
                 guard let data = data else { return }
                 do {
-                    let tracks = try JSONDecoder().decode(TrackResponse.self, from: data)
+                    var tracks = try JSONDecoder().decode(TrackResponse.self, from: data)
+                    tracks.results.removeFirst()
                     completion(.success(tracks))
-                    print(tracks)
                 } catch  let jsonError {
                     print("Faled Decode \(jsonError)")
                 }

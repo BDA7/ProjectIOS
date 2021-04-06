@@ -17,7 +17,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
         let album = searchResponse?.results[indexPath.row]
 
-        network.getImage(album: album!) { (result) in
+        network.getImage(urlstr: (album?.artworkUrl100)! ) { (result) in
             switch result {
 
             case .success(let imagine):
@@ -30,17 +30,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.labelView?.text = album?.collectionName
         return cell
     }
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "firstSegue", sender: collectionView.cellForItem(at: indexPath))
+        self.performSegue(withIdentifier: "firstSegue", sender: self)
         rowselected = indexPath.row
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "firstSegue" {
             guard let destination1 = segue.destination as? TracksViewController else { return }
-            destination1.name = (searchResponse?.results[rowselected].collectionId)!
-            destination1.img = img!
-            
+            if let path = collectionView.indexPathsForSelectedItems {
+                let row = path[0].row
+                destination1.name = (searchResponse?.results[row].collectionId)!
+                destination1.imgname = (searchResponse?.results[row].artworkUrl100)!
+            }
         }
     }
     let searchController = UISearchController(searchResultsController: nil)
