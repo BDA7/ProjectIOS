@@ -10,11 +10,13 @@ import UIKit
 class TracksViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var imageAlbum: UIImageView!
+    @IBOutlet weak var albumname: UILabel!
     var name = 1
     var urlString = ""
     var trackResponse: TrackResponse?
     let network = Network()
     var imgname = ""
+    var alnname = ""
     var img: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,7 @@ class TracksViewController: UIViewController {
             case .failure(let error):
                 print(error)
             }
+            self.albumname.text = self.alnname
         }
     }
     func setupTable() {
@@ -48,6 +51,7 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = track?.trackName
         cell.imageView?.image = img!
         cell.backgroundColor = UIColor.black
+        
         cell.textLabel?.textColor = .white
         return cell
     }

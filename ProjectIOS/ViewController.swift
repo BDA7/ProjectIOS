@@ -41,6 +41,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 let row = path[0].row
                 destination1.name = (searchResponse?.results[row].collectionId)!
                 destination1.imgname = (searchResponse?.results[row].artworkUrl100)!
+                destination1.alnname = (searchResponse?.results[row].collectionName)!
             }
         }
     }
