@@ -51,7 +51,6 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = track?.trackName
         cell.imageView?.image = img!
         cell.backgroundColor = UIColor.black
-        
         cell.textLabel?.textColor = .white
         return cell
     }
