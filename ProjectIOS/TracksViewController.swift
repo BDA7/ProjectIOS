@@ -12,7 +12,6 @@ class TracksViewController: UIViewController {
     @IBOutlet weak var imageAlbum: UIImageView!
     @IBOutlet weak var albumname: UILabel!
     var name = 1
-    var urlString = ""
     var trackResponse: TrackResponse?
     let network = Network()
     var imgname = ""
