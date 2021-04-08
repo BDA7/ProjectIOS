@@ -52,15 +52,14 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
         cell.imageView?.image = img!
         cell.backgroundColor = UIColor.black
         cell.textLabel?.textColor = .white
+        self.table.reloadData()
         return cell
     }
     func netTrack() {
-        urlString = "https://itunes.apple.com/lookup?id=\(name)&entity=song"
-        network.requestTracks(urlString: urlString) { [weak self] (result) in
+        network.requestTracks(name: name) { [weak self] (result) in
             switch result {
             case .success(let trackResponse):
                 self?.trackResponse = trackResponse
-                self?.table.reloadData()
             case .failure(let error):
                 print(error)
             }

@@ -39,7 +39,8 @@ class Network {
             }
         }.resume()
     }
-    func requestTracks(urlString: String, completion: @escaping (Result<TrackResponse, Error>) -> Void) {
+    func requestTracks(name: Int, completion: @escaping (Result<TrackResponse, Error>) -> Void) {
+        let urlString = "https://itunes.apple.com/lookup?id=\(name)&entity=song"
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             DispatchQueue.main.async {
