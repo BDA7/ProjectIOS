@@ -60,3 +60,30 @@ class Network {
         }.resume()
     }
 }
+extension UIImageView {
+    func load(link: String?) {
+        if let urlString = link {
+            guard let url = URL(string: urlString) else { return }
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self?.image = image
+                        }
+                    }
+                }
+            }
+        } else {
+            guard let url = URL(string: "https://wallpaperaccess.com/full/902580.jpg") else { return }
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self?.image = image
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

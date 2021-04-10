@@ -17,21 +17,12 @@ class TracksViewController: UIViewController {
     let network = Network()
     var imgname = ""
     var alnname = ""
-    var img: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
         netTrack()
         setupTable()
-        network.getImage(urlstr: imgname) { (result) in
-            switch result {
-            case .success(let img):
-                self.img = img
-                self.imageAlbum.image = img
-            case .failure(let error):
-                print(error)
-            }
-            self.albumname.text = self.alnname
-        }
+        albumname.text = alnname
+        imageAlbum.load(link: imgname)
     }
     func setupTable() {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "celltable")
@@ -49,7 +40,7 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celltable", for: indexPath)
         let track = trackResponse?.results[indexPath.row]
         cell.textLabel?.text = track?.trackName
-        cell.imageView?.image = img!
+        cell.imageView?.image = imageAlbum.image
         cell.backgroundColor = UIColor.black
         cell.textLabel?.textColor = .white
         return cell
