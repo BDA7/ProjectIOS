@@ -1,7 +1,6 @@
 //
 //  ViewController.swift
 //  ProjectIOS
-//
 //  Created by Александр Хижко on 07.03.2021.
 //
 
