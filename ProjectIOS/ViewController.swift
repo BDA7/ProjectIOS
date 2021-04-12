@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
-        let album = searchResponse?.results[indexPath.row]
+        let album = vm.searchResponse?.results[indexPath.row]
         cell.imageView.load(link: album?.artworkUrl100)
         cell.labelView?.text = album?.collectionName
         return cell
@@ -41,7 +41,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var urlString = ""
     var rowselected = 0
     var img: UIImage?
-    let vm = VModel()
+    var vm = VModel()
 
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -74,11 +74,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             switch result {
             case .success(let searchResponse):
                 self?.searchResponse = searchResponse
+                self?.vm.searchResponse = searchResponse
                 self?.collectionView.reloadData()
             case .failure(let error):
                 print(error)
             }
         }
-        collectionView.reloadData()
     }
 }
