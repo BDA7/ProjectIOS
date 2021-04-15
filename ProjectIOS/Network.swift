@@ -33,7 +33,12 @@ class Network {
         let url = URL(string: urlstr)
         URLSession.shared.dataTask(with: url!) { data, _, error in
             DispatchQueue.main.async {
-                guard let data = data, error == nil else { return }
+                if let error = error {
+                    print("Error")
+                    imagine(.failure(error))
+                    return
+                }
+                guard let data = data else { return }
                 guard let image = UIImage(data: data) else { return }
                 imagine(.success(image))
             }
@@ -55,6 +60,7 @@ class Network {
                     completion(.success(tracks))
                 } catch  let jsonError {
                     print("Faled Decode \(jsonError)")
+                    completion(.failure(jsonError))
                 }
             }
         }.resume()
@@ -62,25 +68,19 @@ class Network {
 }
 extension UIImageView {
     func load(link: String?) {
-        if let urlString = link {
-            guard let url = URL(string: urlString) else { return }
-            DispatchQueue.global().async { [weak self] in
-                if let data = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self?.image = image
-                        }
-                    }
-                }
-            }
+        var urlString = link
+        if urlString != nil {
+            urlString?.removeLast(13)
+            urlString?.append("250x250bb.jpg")
         } else {
-            guard let url = URL(string: "https://wallpaperaccess.com/full/902580.jpg") else { return }
-            DispatchQueue.global().async { [weak self] in
-                if let data = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self?.image = image
-                        }
+            urlString = "https://wallpaperaccess.com/full/902580.jpg"
+        }
+        guard let url = URL(string: urlString! ) else { return }
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
                     }
                 }
             }
