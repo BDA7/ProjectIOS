@@ -40,7 +40,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 // Создание запроса
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.searchTextField.textColor = .white
-        urlString = "https://itunes.apple.com/search?term=\(searchText)&entity=album"
+        let stx = searchText.replacingOccurrences(of: " ", with: "")
+        urlString = "https://itunes.apple.com/search?term=\(stx)&entity=album"
     }
 // Получение данных по запросу
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
