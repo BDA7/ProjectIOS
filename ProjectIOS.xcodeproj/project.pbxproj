@@ -10,6 +10,8 @@
 		EF16B64E25FFB90000F33385 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16B64C25FFB90000F33385 /* AlbumViewCell.swift */; };
 		EF16B64F25FFB90000F33385 /* AlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF16B64D25FFB90000F33385 /* AlbumViewCell.xib */; };
 		EF52427126221B040010D808 /* VModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52427026221B040010D808 /* VModel.swift */; };
+		EF52DA03262F707A00D9145D /* TracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52DA01262F707A00D9145D /* TracksTableViewCell.swift */; };
+		EF52DA04262F707A00D9145D /* TracksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF52DA02262F707A00D9145D /* TracksTableViewCell.xib */; };
 		EF79F63625F54949002CCCE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF79F63525F54949002CCCE2 /* AppDelegate.swift */; };
 		EF79F63825F54949002CCCE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF79F63725F54949002CCCE2 /* SceneDelegate.swift */; };
 		EF79F63A25F54949002CCCE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF79F63925F54949002CCCE2 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 		EF16B64C25FFB90000F33385 /* AlbumViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewCell.swift; sourceTree = "<group>"; };
 		EF16B64D25FFB90000F33385 /* AlbumViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewCell.xib; sourceTree = "<group>"; };
 		EF52427026221B040010D808 /* VModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VModel.swift; sourceTree = "<group>"; };
+		EF52DA01262F707A00D9145D /* TracksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksTableViewCell.swift; sourceTree = "<group>"; };
+		EF52DA02262F707A00D9145D /* TracksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TracksTableViewCell.xib; sourceTree = "<group>"; };
 		EF79F63225F54949002CCCE2 /* ProjectIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF79F63525F54949002CCCE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF79F63725F54949002CCCE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				EFC5AA43261503C600381ABD /* TracksViewController.swift */,
 				EFB0F2222619073200CCD321 /* TrackResponse.swift */,
 				EF52427026221B040010D808 /* VModel.swift */,
+				EF52DA01262F707A00D9145D /* TracksTableViewCell.swift */,
+				EF52DA02262F707A00D9145D /* TracksTableViewCell.xib */,
 			);
 			path = ProjectIOS;
 			sourceTree = "<group>";
@@ -154,6 +160,7 @@
 				EF79F64525F5494C002CCCE2 /* LaunchScreen.storyboard in Resources */,
 				EF79F64225F5494C002CCCE2 /* Assets.xcassets in Resources */,
 				EF16B64F25FFB90000F33385 /* AlbumViewCell.xib in Resources */,
+				EF52DA04262F707A00D9145D /* TracksTableViewCell.xib in Resources */,
 				EF79F63D25F54949002CCCE2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF52DA03262F707A00D9145D /* TracksTableViewCell.swift in Sources */,
 				EF79F63A25F54949002CCCE2 /* ViewController.swift in Sources */,
 				EFD3B38C25FEA380003D8520 /* SearchResponse.swift in Sources */,
 				EF52427126221B040010D808 /* VModel.swift in Sources */,

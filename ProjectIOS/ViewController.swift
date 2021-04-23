@@ -81,9 +81,10 @@ extension ViewController {
             guard let destination1 = segue.destination as? TracksViewController else { return }
             if let path = collectionView.indexPathsForSelectedItems {
                 let row = path[0].row
-                if searchResponse?.results[row].collectionId != nil && searchResponse?.results[row].artworkUrl100 != nil && searchResponse?.results[row].collectionName != nil {
-                    destination1.name = (searchResponse?.results[row].collectionId)!
-                    destination1.imgname = (searchResponse?.results[row].artworkUrl100)!
+                if let collect = searchResponse?.results[row].collectionId,
+                   let imag = searchResponse?.results[row].artworkUrl100 {
+                    destination1.albumID = collect
+                    destination1.imgname = imag
                     destination1.alnname = (searchResponse?.results[row].collectionName)!
                     destination1.nameArt = (searchResponse?.results[row].artistName)!
                     destination1.type = (searchResponse?.results[row].primaryGenreName)!

@@ -55,8 +55,7 @@ class Network {
                 }
                 guard let data = data else { return }
                 do {
-                    var tracks = try JSONDecoder().decode(TrackResponse.self, from: data)
-                    tracks.results.removeFirst()
+                    let tracks = try JSONDecoder().decode(TrackResponse.self, from: data)
                     completion(.success(tracks))
                 } catch  let jsonError {
                     print("Faled Decode \(jsonError)")
