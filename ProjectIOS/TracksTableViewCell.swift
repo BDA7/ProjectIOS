@@ -9,7 +9,10 @@ import UIKit
 
 class TracksTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imageOfAlbum: UIImageView!
     @IBOutlet weak var nameOfAlbum: UILabel!
+    @IBOutlet weak var nameOfArtist: UILabel!
+    @IBOutlet weak var styleTrack: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

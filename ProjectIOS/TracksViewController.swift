@@ -18,11 +18,12 @@ class TracksViewController: UIViewController {
     var alnname = ""
     var nameArt = ""
     var type = ""
+    var img: UIImageView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        img?.load(link: imgname)
         netTrack()
         setupTable()
-
     }
 
 }
@@ -34,9 +35,20 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableViewTracks.dequeueReusableCell(withIdentifier: "tracksViewCell", for: indexPath) as! TracksTableViewCell
-        cell.nameOfAlbum.text = "1234567890"
-        cell.nameOfAlbum.backgroundColor = .yellow
+        let cell = tableViewTracks.dequeueReusableCell(withIdentifier: "celltable", for: indexPath)
+        let tracks = trackResponse?.results[indexPath.row]
+        if indexPath.row == 0 {
+            let cellblue = tableViewTracks.dequeueReusableCell(withIdentifier: "tracksViewCell", for: indexPath) as! TracksTableViewCell
+            cellblue.nameOfAlbum.text = alnname
+            cellblue.imageOfAlbum.load(link: imgname)
+            cellblue.nameOfArtist.text = nameArt
+            cellblue.styleTrack.text = type
+            cellblue.backgroundColor = .black
+            return cellblue
+        }
+        cell.textLabel?.text = "\(indexPath.row)   " + (tracks?.trackName)!
+        cell.backgroundColor = .black
+        cell.textLabel?.textColor = .white
         return cell
     }
 // получение данных для таблицы
@@ -54,11 +66,11 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
     }
 // Создание образа таблицы
     func setupTable() {
-//        tableViewTracks.register(UITableViewCell.self, forCellReuseIdentifier: "celltable")
+        tableViewTracks.register(UITableViewCell.self, forCellReuseIdentifier: "celltable")
         tableViewTracks.register(UINib.init(nibName: "TracksTableViewCell", bundle: nil), forCellReuseIdentifier: "tracksViewCell")
         tableViewTracks.delegate = self
         tableViewTracks.dataSource = self
         tableViewTracks.allowsSelection = false
-        tableViewTracks.tableFooterView = UIView()
+//        tableViewTracks.tableFooterView = UIView()
     }
 }
