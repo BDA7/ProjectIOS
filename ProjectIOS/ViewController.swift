@@ -24,6 +24,23 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionSetup()
 
     }
+}
+extension ViewController {
+// Создание образа коллекции
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return searchResponse?.results.count ?? 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
+        let album = vm.searchResponse?.results[indexPath.row]
+        cell.imageView.load(link: album?.artworkUrl100)
+        cell.labelView?.text = album?.collectionName
+        return cell
+    }
+}
+
+extension ViewController {
 // Определение коллекции
     func collectionSetup() {
         collectionView.delegate = self
@@ -57,19 +74,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
 }
-extension ViewController {
-// Создание образа коллекции
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchResponse?.results.count ?? 0
-    }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
-        let album = vm.searchResponse?.results[indexPath.row]
-        cell.imageView.load(link: album?.artworkUrl100)
-        cell.labelView?.text = album?.collectionName
-        return cell
-    }
+extension ViewController {
 // Передача данных на второй экран
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "firstSegue", sender: self)

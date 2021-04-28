@@ -19,9 +19,9 @@ class TracksViewController: UIViewController {
     var nameArt = ""
     var type = ""
     var img: UIImageView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        img?.load(link: imgname)
         netTrack()
         setupTable()
     }
@@ -51,6 +51,10 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.textColor = .white
         return cell
     }
+
+}
+
+extension TracksViewController {
 // получение данных для таблицы
     func netTrack() {
         urlString = "https://itunes.apple.com/lookup?id=\(albumID)&entity=song"
